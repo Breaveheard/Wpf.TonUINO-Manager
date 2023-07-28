@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>Wpf.TonUINOManager.Common</RootNamespace>
+	  <Nullable>disable</Nullable>
+	<UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TagLibSharp" Version="2.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Wpf.Common\Wpf.Common\Wpf.Common.csproj" />
+    <ProjectReference Include="..\..\Wpf.Controls\Wpf.Controls\Wpf.Controls.csproj" />
+    <ProjectReference Include="..\..\Wpf.Themes\Wpf.Themes\Wpf.Themes.csproj" />
+  </ItemGroup>
+
+</Project>

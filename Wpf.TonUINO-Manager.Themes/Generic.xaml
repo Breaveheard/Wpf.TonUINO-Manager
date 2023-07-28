@@ -1,0 +1,28 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/Resources/Colors.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/TextBlock.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/Window.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/Button.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/TextBox.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/NumberBoxInteger.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/NumberBoxFloat.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/ScrollBar.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/ScrollViewer.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/ComboBoxItem.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/ComboBox.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/CheckBox.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/RadioButton.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/ListBoxItem.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/ListBox.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/MenuItem.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/Menu.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/ContextMenu.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/Switch.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/Slider.xaml" />
+        <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Generic/TabControl.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

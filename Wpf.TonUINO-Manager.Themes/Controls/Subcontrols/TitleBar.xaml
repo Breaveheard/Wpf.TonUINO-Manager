@@ -1,0 +1,107 @@
+﻿<UserControl x:Class="Wpf.TonUINOManager.Themes.Controls.Subcontrols.TitleBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Wpf.TonUINOManager.Themes"
+             mc:Ignorable="d"
+             x:Name="this_TitleBar">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Wpf.TonUINOManager.Themes;component/Themes/Generic/Resources/Colors.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="TitleBar.Background"        Color="{StaticResource Dark.Darkest}" Opacity="1" />
+            <SolidColorBrush x:Key="Button.Background.Normal"   Color="{StaticResource Dark.Darkest}" Opacity="1" />
+            <SolidColorBrush x:Key="Button.Background.Hover"    Color="{StaticResource Dark.Main}"    Opacity="1" />
+            <SolidColorBrush x:Key="Button.Background.Pressed"  Color="Black"                         Opacity="1" />
+            <SolidColorBrush x:Key="Button.Background.Disabled" Color="{StaticResource Dark.Darkest}" Opacity="1" />
+            <SolidColorBrush x:Key="Button.Background.Red"      Color="{StaticResource Red.Main}"     Opacity="1" />
+
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Background"  Value="{StaticResource Button.Background.Normal}" />
+                <Setter Property="Foreground"  Value="{StaticResource Button.Background.Hover}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0" />
+
+                <Setter Property="SnapsToDevicePixels" Value="True" />
+                <Setter Property="Focusable"        Value="False" />
+                <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment"   Value="Center" />
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+
+                            <Border x:Name="border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter x:Name="content" Focusable="False" Opacity="0.75" />
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border"  Property="Background" Value="{Binding Foreground, RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                                    <Setter TargetName="content" Property="Opacity"    Value="1" />
+                                </Trigger>
+
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="border"  Property="Background" Value="{StaticResource Button.Background.Pressed}"/>
+                                    <Setter TargetName="content" Property="Opacity"    Value="0.5" />
+                                </Trigger>
+
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="content" Property="Opacity" Value="0.25" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource TitleBar.Background}" MouseLeftButtonDown="DragBar_MouseLeftButtonDown">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40px" />
+            <ColumnDefinition Width="40px" />
+            <ColumnDefinition Width="40px" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="36px" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ContentPresenter Grid.Column="0"
+                              HorizontalAlignment="Center"
+                              Content="{Binding Icon, ElementName=this_TitleBar}" />
+
+            <TextBlock Grid.Column="1"
+                       Foreground="{StaticResource Foreground.Normal}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Text="{Binding Title, ElementName=this_TitleBar}" />
+        </Grid>
+
+        <Button x:Name="BtnMinimize" Grid.Column="1" Click="Minimize_Click">
+            <Image Source="/XenionDark;component/Themes/Generic/Resources/Images/Window/minimize_icon.png" />
+        </Button>
+
+        <Button x:Name="BtnMaximize" Grid.Column="2" Click="Maximize_Click">
+            <Image x:Name="Maximize" />
+        </Button>
+
+        <Button Grid.Column="3" Click="Close_Click" Foreground="{StaticResource Button.Background.Red}">
+            <Image Source="/XenionDark;component/Themes/Generic/Resources/Images/Window/close_icon.png" />
+        </Button>
+    </Grid>
+
+</UserControl>

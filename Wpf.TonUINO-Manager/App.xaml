@@ -1,0 +1,15 @@
+﻿<Application x:Class="Wpf.TonUINOManager.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Wpf.TonUINOManager">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Wpf.Themes;component/Dark/Generic.xaml"/>
+                <!--<ResourceDictionary Source="pack://application:,,,/Wpf.Themes;component/Light/Generic.xaml"/>-->
+                <ResourceDictionary Source="pack://application:,,,/Wpf.TonUINOManager;component/Themes/Fluent.Themes.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Wpf.TonUINOManager.Common;component/Themes/Generic.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

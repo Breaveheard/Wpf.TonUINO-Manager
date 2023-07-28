@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>Wpf.TonUINOManager</RootNamespace>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\add.png" />
+    <None Remove="Resources\delete.png" />
+    <None Remove="Resources\folder_add.png" />
+    <None Remove="Resources\tonuino_logo_wide.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="App.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fluent.Ribbon" Version="10.0.0" />
+    <PackageReference Include="MvvmGen" Version="1.2.1" />
+    <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Wpf.Common\Wpf.Common\Wpf.Common.csproj" />
+    <ProjectReference Include="..\..\Wpf.Controls\Wpf.Controls\Wpf.Controls.csproj" />
+    <ProjectReference Include="..\..\Wpf.Themes\Wpf.Themes\Wpf.Themes.csproj" />
+    <ProjectReference Include="..\Wpf.TonUINO-Manager.Common\Wpf.TonUINOManager.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\add.png" />
+    <Resource Include="Resources\delete.png" />
+    <Resource Include="Resources\folder_add.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SplashScreen Include="Resources\tonuino_logo_wide.png" />
+  </ItemGroup>
+</Project>

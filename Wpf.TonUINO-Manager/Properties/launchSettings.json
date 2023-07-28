@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Wpf.TonUINOManager": {
+      "commandName": "Project",
+      "commandLineArgs": "\"D:\\Music\\Tonuino Library SD-Card\""
+    }
+  }
+}

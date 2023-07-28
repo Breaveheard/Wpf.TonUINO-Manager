@@ -1,0 +1,65 @@
+﻿<fluent:RibbonWindow x:Class="Wpf.TonUINOManager.Views.MainWindow"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:extension="clr-namespace:Wpf.Common.Extensions;assembly=Wpf.Common"
+              xmlns:fluent="clr-namespace:Fluent;assembly=Fluent"
+              xmlns:views="clr-namespace:Wpf.TonUINOManager.Views"
+              xmlns:control="clr-namespace:Wpf.Controls;assembly=Wpf.Controls"
+              xmlns:themes="clr-namespace:Wpf.Themes;assembly=Wpf.Themes"
+              mc:Ignorable="d" d:DataContext="{d:DesignInstance Type=views:MainWindowVm, IsDesignTimeCreatable=True}"
+              Title="TonUINOManager" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <fluent:Ribbon Grid.Row="0" >
+            <fluent:Ribbon.Menu>
+                <fluent:Backstage Visibility="Visible">
+                    <fluent:BackstageTabControl>
+                        <fluent:Button Header="New" Command="{Binding NewRepositoryDialogCommand}"/>
+                        <fluent:Button Header="Open" Command="{Binding OpenRepositoryDialogCommand}"/>
+                        <fluent:BackstageTabItem Header="Info" />
+                        <Separator DockPanel.Dock="Bottom"/>
+                        <fluent:Button Header="Options" Command="{Binding OptionsDialogCommand}" DockPanel.Dock="Bottom"/>
+                    </fluent:BackstageTabControl>
+                </fluent:Backstage>
+            </fluent:Ribbon.Menu>
+
+            <fluent:RibbonTabItem Header="Home">
+                <fluent:RibbonGroupBox Header="Folder">
+                    <fluent:Button Header="New Folder" Icon="pack://application:,,,/Wpf.TonUINOManager;component/Resources\folder_add.png"/>
+                </fluent:RibbonGroupBox>
+                <fluent:RibbonGroupBox Header="Files">
+                    <fluent:Button Header="Add" Icon="pack://application:,,,/Wpf.TonUINOManager;component/Resources\add.png"/>
+                    <fluent:Button Header="Remove" Icon="pack://application:,,,/Wpf.TonUINOManager;component/Resources\delete.png"/>
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+            <fluent:RibbonTabItem Header="View">
+                <fluent:RibbonGroupBox Header="Theme">
+                    <fluent:ComboBox ItemsSource="{Binding PossibleThemeTypes}"
+                                     SelectedItem="{Binding SelectedThemeType}"/>
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+        </fluent:Ribbon>
+
+        <Grid Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <control:ListBox ItemsSource="{Binding AudioRepository.Folders}"
+                      ItemTemplate="{DynamicResource AudioFolder}"
+                      HorizontalContentAlignment="Stretch">
+            </control:ListBox>
+        </Grid>
+
+        <fluent:StatusBar Grid.Row="2">
+
+        </fluent:StatusBar>
+    </Grid>
+</fluent:RibbonWindow>

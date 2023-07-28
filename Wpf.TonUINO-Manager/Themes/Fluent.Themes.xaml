@@ -1,0 +1,55 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Fluent;Component/Themes/Generic.xaml" />
+
+        <!-- Light -->
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Red.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Green.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Blue.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Purple.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Orange.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Lime.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Emerald.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Teal.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Cyan.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Cobalt.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Indigo.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Violet.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Pink.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Magenta.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Crimson.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Amber.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Yellow.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Brown.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Olive.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Steel.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Mauve.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Taupe.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Light.Sienna.xaml" />
+
+        <!-- Dark -->
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Red.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Green.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Blue.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Purple.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Orange.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Lime.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Emerald.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Teal.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Cyan.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Cobalt.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Indigo.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Violet.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Pink.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Magenta.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Crimson.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Amber.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Yellow.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Brown.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Olive.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Steel.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Mauve.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Taupe.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Dark.Sienna.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

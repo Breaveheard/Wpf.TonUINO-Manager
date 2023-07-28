@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.TonUINOManager", "Wpf.TonUINO-Manager\Wpf.TonUINOManager.csproj", "{A5728CEB-40C6-4370-8712-78500D44E4DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.Common", "..\Wpf.Common\Wpf.Common\Wpf.Common.csproj", "{D4B05B52-61E1-411F-9847-D353AF17F623}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.Controls", "..\Wpf.Controls\Wpf.Controls\Wpf.Controls.csproj", "{28EF2D50-D0FB-4988-9623-20FEEB587B7B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.TonUINOManager.Common", "Wpf.TonUINO-Manager.Common\Wpf.TonUINOManager.Common.csproj", "{ADCD9794-800A-4861-9C40-0B7B3A26A24B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.Themes", "..\Wpf.Themes\Wpf.Themes\Wpf.Themes.csproj", "{335F0D2F-4FE5-46F1-AD88-ED1977D6B1DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5728CEB-40C6-4370-8712-78500D44E4DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5728CEB-40C6-4370-8712-78500D44E4DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5728CEB-40C6-4370-8712-78500D44E4DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5728CEB-40C6-4370-8712-78500D44E4DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4B05B52-61E1-411F-9847-D353AF17F623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4B05B52-61E1-411F-9847-D353AF17F623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4B05B52-61E1-411F-9847-D353AF17F623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4B05B52-61E1-411F-9847-D353AF17F623}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28EF2D50-D0FB-4988-9623-20FEEB587B7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28EF2D50-D0FB-4988-9623-20FEEB587B7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28EF2D50-D0FB-4988-9623-20FEEB587B7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28EF2D50-D0FB-4988-9623-20FEEB587B7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADCD9794-800A-4861-9C40-0B7B3A26A24B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADCD9794-800A-4861-9C40-0B7B3A26A24B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADCD9794-800A-4861-9C40-0B7B3A26A24B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADCD9794-800A-4861-9C40-0B7B3A26A24B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{335F0D2F-4FE5-46F1-AD88-ED1977D6B1DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{335F0D2F-4FE5-46F1-AD88-ED1977D6B1DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{335F0D2F-4FE5-46F1-AD88-ED1977D6B1DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{335F0D2F-4FE5-46F1-AD88-ED1977D6B1DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8AD83941-D4F6-4860-98F3-F1880A8DD30B}
+	EndGlobalSection
+EndGlobal
