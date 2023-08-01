@@ -1,12 +1,9 @@
 ﻿
 namespace Wpf.TonUINOManager.Views
 {
-    using ControlzEx.Theming;
     using Microsoft.WindowsAPICodePack.Dialogs;
     using MvvmGen;
-    using System;
-    using System.Windows;
-    using Wpf.Themes;
+    using Microsoft.Win32;
     using Wpf.TonUINOManager.Common.Controls;
 
     [ViewModel]
@@ -15,40 +12,38 @@ namespace Wpf.TonUINOManager.Views
         #region Private Fields
 
         [Property] private AudioRepository _audioRepository;
-        private ThemeTypes _selectedThemeType;
-
-        #endregion
-
-        #region Constructors
 
         #endregion
 
         #region Properties
 
         /// <summary>
-        /// Gets the possible theme types.
+        /// Gets or sets the selected audio folder.
         /// </summary>
-        public ThemeTypes[] PossibleThemeTypes => new ThemeTypes[] { ThemeTypes.Dark, ThemeTypes.Light };
-
-        /// <summary>
-        /// Gets or sets the type of the selected theme.
-        /// </summary>
-        public ThemeTypes SelectedThemeType
+        public AudioFolder SelectedAudioFolder
         {
-            get
-            {
-                var theme = ThemeManager.Current.DetectTheme(Application.Current);
-                _selectedThemeType = Enum.Parse<ThemeTypes>(theme.BaseColorScheme);
-
-                return _selectedThemeType;
-            }
-
+            get => this.AudioRepository?.SelectedAudioFolder;
             set
             {
-                _selectedThemeType = value;
+                this.AudioRepository.SelectedAudioFolder = value;
+                this.OnPropertyChanged();
+            }
+        }
 
-                ThemesController.SetTheme(value);
-                ThemeManager.Current.ChangeTheme(Application.Current, $"{value}.Sienna");
+        /// <summary>
+        /// Gets or sets the selected audio file.
+        /// </summary>
+        public AudioFile SelectedAudioFile
+        {
+            get => this.AudioRepository?.SelectedAudioFolder?.SelectedAudioFile;
+            set
+            {
+                if (this.SelectedAudioFolder != null)
+                {
+                    this.AudioRepository.SelectedAudioFolder.SelectedAudioFile = value;
+                }
+
+                this.OnPropertyChanged();
             }
         }
 
@@ -98,6 +93,63 @@ namespace Wpf.TonUINOManager.Views
         {
             var optionsWindow = new OptionsWindow();
             optionsWindow.ShowDialog();
+        }
+
+        [Command(CanExecuteMethod = nameof(CanEditFiles))]
+        private void EditFiles()
+        {
+            if (this.SelectedAudioFile != null)
+            {
+                var editAudioFileWindow = new EditAudioFileWindow(this.SelectedAudioFile);
+                editAudioFileWindow.ShowDialog();
+                //this.OnPropertyChanged(nameof(this.AudioRepository));
+                //this.OnPropertyChanged(nameof(this.SelectedAudioFile));
+
+                this.AudioRepository.ReloadFolder();
+            }
+        }
+
+        [CommandInvalidate(nameof(SelectedAudioFile))]
+        private bool CanEditFiles()
+        {
+            return this.SelectedAudioFile != null;
+        }
+
+        [Command]
+        private void NewFolder()
+        {
+            this.AudioRepository.CreateFolder();
+        }
+
+        [Command]
+        private void RemoveFolder()
+        {
+            this.AudioRepository.RemoveFolder(SelectedAudioFolder);
+        }
+
+        [Command]
+        private void AddFiles(object obj)
+        {
+            var openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "mp3 files (*.mp3)|*.mp3|All files (*.*)|*.*";
+            openFileDialog.RestoreDirectory = true;
+            if (openFileDialog.ShowDialog() == true)
+            {
+                // Check if file needs to be converted into mp3
+
+                this.AudioRepository.AddFile(openFileDialog.FileName);
+                this.OnPropertyChanged(nameof(this.AudioRepository));
+                this.OnPropertyChanged(nameof(this.SelectedAudioFolder));
+            }
+        }
+
+        [Command]
+        private void RemoveFiles(object obj)
+        {
+            if (obj is AudioFolder folder)
+            {
+                folder.RemoveFile(folder.SelectedAudioFile);
+            }
         }
 
         #endregion

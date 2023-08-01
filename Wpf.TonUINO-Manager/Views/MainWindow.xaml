@@ -3,13 +3,11 @@
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-              xmlns:extension="clr-namespace:Wpf.Common.Extensions;assembly=Wpf.Common"
               xmlns:fluent="clr-namespace:Fluent;assembly=Fluent"
               xmlns:views="clr-namespace:Wpf.TonUINOManager.Views"
               xmlns:control="clr-namespace:Wpf.Controls;assembly=Wpf.Controls"
-              xmlns:themes="clr-namespace:Wpf.Themes;assembly=Wpf.Themes"
               mc:Ignorable="d" d:DataContext="{d:DesignInstance Type=views:MainWindowVm, IsDesignTimeCreatable=True}"
-              Title="TonUINOManager" Height="450" Width="800">
+              Title="TonUINOManager" Height="800" Width="1280">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -32,29 +30,44 @@
 
             <fluent:RibbonTabItem Header="Home">
                 <fluent:RibbonGroupBox Header="Folder">
-                    <fluent:Button Header="New Folder" Icon="pack://application:,,,/Wpf.TonUINOManager;component/Resources\folder_add.png"/>
+                    <fluent:Button Header="New" Command="{Binding NewFolderCommand}" Icon="pack://application:,,,/Wpf.TonUINOManager;component/Resources\folder_add.png"/>
+                    <fluent:Button Header="Remove" Command="{Binding RemoveFolderCommand}" Icon="pack://application:,,,/Wpf.TonUINOManager;component/Resources\folder_delete.png"/>
                 </fluent:RibbonGroupBox>
                 <fluent:RibbonGroupBox Header="Files">
-                    <fluent:Button Header="Add" Icon="pack://application:,,,/Wpf.TonUINOManager;component/Resources\add.png"/>
-                    <fluent:Button Header="Remove" Icon="pack://application:,,,/Wpf.TonUINOManager;component/Resources\delete.png"/>
-                </fluent:RibbonGroupBox>
-            </fluent:RibbonTabItem>
-            <fluent:RibbonTabItem Header="View">
-                <fluent:RibbonGroupBox Header="Theme">
-                    <fluent:ComboBox ItemsSource="{Binding PossibleThemeTypes}"
-                                     SelectedItem="{Binding SelectedThemeType}"/>
+                    <fluent:Button Header="Add" Command="{Binding AddFilesCommand}" CommandParameter="{Binding SelectedAudioFolder}" Icon="pack://application:,,,/Wpf.TonUINOManager;component/Resources\add.png"/>
+                    <fluent:Button Header="Remove" Command="{Binding RemoveFilesCommand}" CommandParameter="{Binding SelectedAudioFolder}" Icon="pack://application:,,,/Wpf.TonUINOManager;component/Resources\delete.png"/>
+                    <fluent:Button Header="Edit" Command="{Binding EditFilesCommand}" Icon="pack://application:,,,/Wpf.TonUINOManager;component/Resources\bullet_edit.png"/>
                 </fluent:RibbonGroupBox>
             </fluent:RibbonTabItem>
         </fluent:Ribbon>
 
         <Grid Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
 
-            <control:ListBox ItemsSource="{Binding AudioRepository.Folders}"
-                      ItemTemplate="{DynamicResource AudioFolder}"
-                      HorizontalContentAlignment="Stretch">
+            <control:ListBox Grid.Column="0"
+                             ItemsSource="{Binding AudioRepository.Folders}"
+                             ItemTemplate="{DynamicResource AudioFolder}"
+                             SelectedItem="{Binding SelectedAudioFolder}"
+                             HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch"/>
+
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
+
+            <control:ListBox Grid.Column="2"
+                             ItemsSource="{Binding SelectedAudioFolder.Files}"
+                             ItemTemplate="{DynamicResource AudioFile}"
+                             SelectedItem="{Binding SelectedAudioFile}"
+                             HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch">
+                <control:ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Add" Command="{Binding AddFilesCommand}" CommandParameter="{Binding SelectedAudioFolder}"/>
+                        <MenuItem Header="Remove" Command="{Binding RemoveFilesCommand}" CommandParameter="{Binding SelectedAudioFolder}"/>
+                        <MenuItem Header="Edit" Command="{Binding EditFilesCommand}" />
+                    </ContextMenu>
+                </control:ListBox.ContextMenu>
             </control:ListBox>
         </Grid>
 

@@ -6,8 +6,8 @@
               xmlns:local="clr-namespace:Wpf.TonUINOManager.Views"
               xmlns:fluent="urn:fluent-ribbon"
               xmlns:controls="clr-namespace:Wpf.Controls;assembly=Wpf.Controls"
-              mc:Ignorable="d" d:DataContext="{d:DesignInstance Type=local:MainWindowVm, IsDesignTimeCreatable=True}"
-              Title="OptionsWindow" Height="450" Width="800">
+              mc:Ignorable="d" d:DataContext="{d:DesignInstance Type=local:OptionsWindowVm, IsDesignTimeCreatable=True}"
+              Title="Options" Height="800" Width="1280">
     <Grid>
         <controls:TabControl TabStripPlacement="Left">
             <TabControl.Resources>
@@ -15,7 +15,7 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="TabItem">
-                                <Border Name="Border" BorderThickness="1,1,1,0" BorderBrush="Gainsboro" CornerRadius="4,4,0,0" Margin="1" MinWidth="200" MinHeight="25">
+                                <Border Name="Border" BorderThickness="1,1,1,0" BorderBrush="Gainsboro" CornerRadius="4,4,0,0" Margin="1" MinWidth="200" MinHeight="40">
                                     <ContentPresenter x:Name="ContentSite"
                                                       VerticalAlignment="Center"
                                                       HorizontalAlignment="Center"
@@ -36,14 +36,21 @@
                 </Style>
             </TabControl.Resources>
 
-            <TabItem Header="General">
-                <controls:TextBlock Text="Content goes here..." />
+            <TabItem Header="General" MinWidth="150" MinHeight="40">
+                <StackPanel Margin="20">
+                    <controls:TextBlock Text="General" FontSize="24"/>
+                    <StackPanel Margin="20, 0" Orientation="Horizontal">
+                        <controls:TextBlock Text="Theme: " VerticalAlignment="Center"/>
+                        <controls:ComboBox MinWidth="200" 
+                                           ItemsSource="{Binding PossibleThemeTypes}"
+                                           SelectedItem="{Binding SelectedThemeType}"/>
+                    </StackPanel>
+
+                </StackPanel>
+
             </TabItem>
-            <TabItem Header="Security" />
-            <TabItem Header="Details" />
+            <!--<TabItem Header="Security" />
+            <TabItem Header="Details" />-->
         </controls:TabControl>
-
-
-
     </Grid>
 </fluent:RibbonWindow>

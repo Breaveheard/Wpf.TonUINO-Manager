@@ -1,10 +1,59 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Wpf.TonUINOManager.Common.Controls"
-                    xmlns:control="clr-namespace:Wpf.Controls;assembly=Wpf.Controls">
+                    xmlns:control="clr-namespace:Wpf.Controls;assembly=Wpf.Controls"
+                    xmlns:converter="clr-namespace:Wpf.Common.Converter;assembly=Wpf.Common">
     <DataTemplate DataType="{x:Type controls:AudioFile}" x:Key="AudioFile">
-        <StackPanel>
-            <control:TextBlock Text="{Binding Title}"/>
-        </StackPanel>
+        <DataTemplate.Resources>
+            <converter:ImageConverter x:Key="ImageConverter"/>
+            <BooleanToVisibilityConverter x:Key="BoolToVisConverter" />
+            <converter:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter" />
+        </DataTemplate.Resources>
+
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Source="{Binding Cover, Converter={StaticResource ImageConverter}}"/>
+            <ToggleButton Grid.Column="0" Command="{Binding PlayButtonCommand}" IsChecked="{Binding IsPlaying}" Width="50" Height="50">
+                <ToggleButton.Style>
+                    <Style TargetType="{x:Type ToggleButton}">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="1">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ToggleButton.Style>
+                <Grid>
+                    <Image Visibility="{Binding IsChecked, RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}, Converter={StaticResource BoolToVisConverter}}" Source="pack://application:,,,/Wpf.TonUINOManager.Common;component/Themes/Resources\control_pause.png" />
+                    <!--<Image Visibility="{Binding IsChecked, RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}, Converter={StaticResource InverseBooleanToVisibilityConverter}}" Source="pack://application:,,,/Wpf.TonUINOManager.Common;component/Themes/Resources\control_play.png" />-->
+                </Grid>
+            </ToggleButton>
+
+
+            <StackPanel Grid.Column="2">
+                <control:TextBlock Text="{Binding FileName}"/>
+                <control:TextBlock Text="{Binding Title}"/>
+                <control:TextBlock Text="{Binding AlbumArtist}"/>
+                <control:TextBlock Text="{Binding Track}"/>
+            </StackPanel>
+        </Grid>
     </DataTemplate>
 </ResourceDictionary>

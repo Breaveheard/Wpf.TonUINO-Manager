@@ -14,18 +14,6 @@ namespace Wpf.TonUINOManager
     /// </summary>
     public partial class App
     {
-        #region Private Fields
-
-        #endregion
-
-        #region Constructors
-
-        #endregion
-
-        #region Properties
-
-        #endregion
-
         #region Public Methods
 
         protected override void OnStartup(StartupEventArgs e)
@@ -37,19 +25,18 @@ namespace Wpf.TonUINOManager
 
             ThemesController.SyncTheme();
 
-            MainWindowVm mainWindowVm = new MainWindowVm();
-            if (Directory.Exists(e.Args[0]))
+            var mainWindowVm = new MainWindowVm();
+            if (e.Args.Length > 0)
             {
-                mainWindowVm.OpenRepository(e.Args[0]);
+                if (Directory.Exists(e.Args[0]))
+                {
+                    mainWindowVm.OpenRepository(e.Args[0]);
+                }
             }
             
             var mainWindow = new MainWindow(mainWindowVm);
             mainWindow.Show();
         }
-
-        #endregion
-
-        #region Private Methods
 
         #endregion
     }

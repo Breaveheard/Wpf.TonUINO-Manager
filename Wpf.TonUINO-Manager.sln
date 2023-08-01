@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.TonUINOManager.Common",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.Themes", "..\Wpf.Themes\Wpf.Themes\Wpf.Themes.csproj", "{335F0D2F-4FE5-46F1-AD88-ED1977D6B1DE}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Wpf.TonUINO-Manager.Setup", "Wpf.TonUINO-Manager.Setup\Wpf.TonUINO-Manager.Setup.vdproj", "{CC6B6FC1-1D08-4F85-BC20-9080B90CC007}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,8 @@ Global
 		{335F0D2F-4FE5-46F1-AD88-ED1977D6B1DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{335F0D2F-4FE5-46F1-AD88-ED1977D6B1DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{335F0D2F-4FE5-46F1-AD88-ED1977D6B1DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC6B6FC1-1D08-4F85-BC20-9080B90CC007}.Debug|Any CPU.ActiveCfg = Debug
+		{CC6B6FC1-1D08-4F85-BC20-9080B90CC007}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

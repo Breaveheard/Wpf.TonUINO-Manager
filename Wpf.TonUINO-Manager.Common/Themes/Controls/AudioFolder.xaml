@@ -1,13 +1,30 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Wpf.TonUINOManager.Common.Controls"
-                    xmlns:control="clr-namespace:Wpf.Controls;assembly=Wpf.Controls">
+                    xmlns:control="clr-namespace:Wpf.Controls;assembly=Wpf.Controls"
+                    xmlns:converter="clr-namespace:Wpf.Common.Converter;assembly=Wpf.Common">
     <DataTemplate DataType="{x:Type controls:AudioFolder}" x:Key="AudioFolder">
-        <StackPanel>
-            <control:TextBlock Text="{Binding Name}"/>
-            <control:ListBox ItemsSource="{Binding Files}"
-                  ItemTemplate="{DynamicResource AudioFile}"
-                  HorizontalContentAlignment="Stretch"/>
-        </StackPanel>
+        <DataTemplate.Resources>
+            <converter:ImageConverter x:Key="imageConverter"/>
+        </DataTemplate.Resources>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Source="{Binding Cover, Converter={StaticResource imageConverter}}"/>
+            
+            <StackPanel Grid.Column="2">
+                <control:TextBlock Text="{Binding Name}"/>
+                <control:TextBlock Text="{Binding Album}"/>
+                <control:TextBlock Text="{Binding Artist}"/>
+            </StackPanel>
+        </Grid>
+
     </DataTemplate>
 </ResourceDictionary>

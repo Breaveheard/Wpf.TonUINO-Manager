@@ -11,8 +11,10 @@
 
   <ItemGroup>
     <None Remove="Resources\add.png" />
+    <None Remove="Resources\bullet_edit.png" />
     <None Remove="Resources\delete.png" />
     <None Remove="Resources\folder_add.png" />
+    <None Remove="Resources\folder_delete.png" />
     <None Remove="Resources\tonuino_logo_wide.png" />
   </ItemGroup>
 
@@ -35,11 +37,21 @@
 
   <ItemGroup>
     <Resource Include="Resources\add.png" />
+    <Resource Include="Resources\bullet_edit.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\delete.png" />
     <Resource Include="Resources\folder_add.png" />
+    <Resource Include="Resources\folder_delete.png" />
   </ItemGroup>
 
   <ItemGroup>
     <SplashScreen Include="Resources\tonuino_logo_wide.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\EditAudioFileWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
